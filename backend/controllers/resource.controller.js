@@ -53,11 +53,11 @@ module.exports.getResourceById = async(req, res) => {
     // Get the resoure
     const resource = await Resource.findById(id);
 
-    console.log(resource);
-
-    res.status(200)/json({
+    // return the resource to the frontend
+    res.status(200).json({
         success: true,
-        message: "Resource fetched"
+        message: "Resource fetched",
+        resource
     });
 }
 
@@ -80,7 +80,7 @@ module.exports.destroyResource = async(req, res) => {
     // Retrive the current resource id
     const { id } = req.params;
 
-    // deletes the resource
+    // Deletes the resource
     await Resource.findByIdAndDelete(id);
     res.status(200).json({
         success: true,

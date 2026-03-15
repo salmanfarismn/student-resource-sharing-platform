@@ -4,7 +4,7 @@ const { isAuthenticated, isAuthorizedUpdate, isAuthorizedDelete } = require("../
 
 router.post("/", isAuthenticated, resourceController.createResource);
 router.get("/posts", resourceController.getResources);
-router.get("/posts/:id", isAuthenticated, resourceController.getResources);
+router.get("/posts/:id", isAuthenticated, resourceController.getResourceById);
 router.put("/:id", isAuthenticated, isAuthorizedUpdate, resourceController.updateResource);
 router.delete("/:id", isAuthenticated, isAuthorizedDelete, resourceController.destroyResource);
 
